@@ -1,0 +1,162 @@
+﻿<Window x:Class="CASE.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CASE"
+        mc:Ignorable="d"
+        Title="CASE" Height="450" Width="600" Cursor="Arrow" WindowStyle="None" ResizeMode="NoResize" Icon="Resources/Icon/case_icon_256px.ico" BorderBrush="#FF009688" BorderThickness="3,0,3,3">
+    <Grid>
+        <Grid Height="44.3" VerticalAlignment="Top" Background="#FF009688" MouseLeftButtonDown="Title_MouseLeftButtonDown">
+            <Button x:Name="button" Content="X" HorizontalAlignment="Right" Margin="0,5,5,5" Width="30" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="21.333" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" Height="30" Click="CloseButton_Clicked" ToolTip="생성기 종료"/>
+            <Label x:Name="label" Content="CASE" HorizontalAlignment="Left" Margin="10,2,0,2" Foreground="White" VerticalAlignment="Center" FontSize="18.667" Height="36.067" FontWeight="Bold" ToolTip="C♡A♡S♡E"/>
+            <Label x:Name="label1" Content="PMMP ☆ 플러그인 틀 생성기" HorizontalAlignment="Left" Margin="78.543,7.801,0,6.989" Foreground="#FFB2DFDB" FontSize="14.667" d:LayoutOverrides="Height"/>
+            <Button x:Name="button1" HorizontalAlignment="Right" Margin="0,5,35,5" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="21.333" FontWeight="Bold" Click="MinimizeButton_Clicked" ToolTip="생성기 창 최소화" Height="30" VerticalAlignment="Center">
+                <Image x:Name="image" Height="19" Width="20" Source="Resources/Image/window-minimize.png" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+            </Button>
+            <Label x:Name="label2" Content="|" HorizontalAlignment="Left" Margin="65.673,8.5,0,9.835" Foreground="White" d:LayoutOverrides="Height"/>
+        </Grid>
+        <Grid Margin="0,44.3,0,0">
+            <Grid x:Name="main_item_grid" Margin="10,10,0,66.128" HorizontalAlignment="Left" Height="305" Opacity="0">
+                <Grid x:Name="grid_name" Height="40" Margin="0,0,40,0" VerticalAlignment="Top">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,190,0">
+                        <Image x:Name="icon_name" Width="20" Source="Resources/Image/account.png" Height="20" Margin="0,9.5,0,10.5"/>
+                        <Label x:Name="text_name" Content="NAME" FontSize="18.667" Foreground="#FF212121" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,1,0,5.246" Cursor="" ToolTip="제작자 이름"/>
+                    </StackPanel>
+                    <TextBox x:Name="textbox_name" Margin="207.4,2.5,0,1.422" TextWrapping="Wrap" HorizontalAlignment="Left" Width="185" BorderThickness="2" BorderBrush="#FF009688" Foreground="#FF212121" FontSize="18.667" SelectionBrush="#FFFFEB3B" MaxLines="1" ToolTip="플러그인의 제작자 이름을 적어주세요.">
+                        <TextBox.Style>
+                            <Style xmlns:sys="clr-namespace:System;assembly=mscorlib" TargetType="{x:Type TextBox}">
+                                <Style.Resources>
+                                    <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                        <VisualBrush.Visual>
+                                            <Label Content="생성자 이름" Foreground="#FFBDBDBD" FontSize="16" />
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Style.Resources>
+                                <Style.Triggers>
+                                    <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                        <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                    </Trigger>
+                                    <Trigger Property="Text" Value="{x:Null}">
+                                        <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                    </Trigger>
+                                    <Trigger Property="IsKeyboardFocused" Value="True">
+                                        <Setter Property="Background" Value="White" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                </Grid>
+                <Grid x:Name="grid_pluginName" Height="40" Margin="0,45,40,0" VerticalAlignment="Top">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,190,0">
+                        <Image x:Name="icon_pluginName" Width="20" Source="Resources/Image/account.png" Height="20" Margin="0,9.5,0,10.5"/>
+                        <Label x:Name="text_pluginName" Content="PLUGIN NAME" FontSize="18.667" Foreground="#FF212121" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,1,0,5.246" ToolTip="플러그인 이름"/>
+                    </StackPanel>
+                    <TextBox x:Name="textbox_pluginName" Margin="207.4,2.5,0,1.422" TextWrapping="Wrap" HorizontalAlignment="Left" Width="185" BorderThickness="2" BorderBrush="#FF009688" Foreground="#FF212121" FontSize="18.667" SelectionBrush="#FFFFEB3B" MaxLines="1" ToolTip="제작할 플러그인의 이름을 적어주세요.">
+                        <TextBox.Style>
+                            <Style xmlns:sys="clr-namespace:System;assembly=mscorlib" TargetType="{x:Type TextBox}">
+                                <Style.Resources>
+                                    <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                        <VisualBrush.Visual>
+                                            <Label Content="플러그인 이름" Foreground="#FFBDBDBD" FontSize="16" />
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Style.Resources>
+                                <Style.Triggers>
+                                    <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                        <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                    </Trigger>
+                                    <Trigger Property="Text" Value="{x:Null}">
+                                        <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                    </Trigger>
+                                    <Trigger Property="IsKeyboardFocused" Value="True">
+                                        <Setter Property="Background" Value="White" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                </Grid>
+                <Grid x:Name="grid_pluginVersion" Height="40" Margin="0,90,40,0" VerticalAlignment="Top">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,190,0">
+                        <Image x:Name="icon_pluginVersion" Width="20" Source="Resources/Image/account.png" Height="20" Margin="0,9.5,0,10.5"/>
+                        <Label x:Name="text_pluginVersion" Content="VERSION" FontSize="18.667" Foreground="#FF212121" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,1,0,5.246" ToolTip="플러그인 버전"/>
+                    </StackPanel>
+                    <TextBox x:Name="textbox_pluginVersion" Margin="207.4,2.5,0,1.422" TextWrapping="Wrap" HorizontalAlignment="Left" Width="185" BorderThickness="2" BorderBrush="#FF009688" Foreground="#FF212121" FontSize="18.667" SelectionBrush="#FFFFEB3B" MaxLines="1" ToolTip="플러그인의 최초 버전을 적어주세요.">
+                        <TextBox.Style>
+                            <Style xmlns:sys="clr-namespace:System;assembly=mscorlib" TargetType="{x:Type TextBox}">
+                                <Style.Resources>
+                                    <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                        <VisualBrush.Visual>
+                                            <Label Content="플러그인 버전" Foreground="#FFBDBDBD" FontSize="16" />
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Style.Resources>
+                                <Style.Triggers>
+                                    <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                        <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                    </Trigger>
+                                    <Trigger Property="Text" Value="{x:Null}">
+                                        <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                    </Trigger>
+                                    <Trigger Property="IsKeyboardFocused" Value="True">
+                                        <Setter Property="Background" Value="White" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                </Grid>
+                <Grid x:Name="grid_api" Margin="0,135,0,0">
+                    <StackPanel x:Name="stackpanel_api" Margin="0,0,40,-4.107">
+                        <Grid x:Name="grid_api0" Height="40">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,190,0">
+                                <Image x:Name="icon_api0" Width="20" Source="Resources/Image/account.png" Height="20" Margin="0,9.5,0,10.5"/>
+                                <Label x:Name="text_api0" Content="Support API" FontSize="18.667" Foreground="#FF212121" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,1,0,5.246" ToolTip="작동이 되는 API"/>
+                            </StackPanel>
+                            <TextBox x:Name="textbox_api0" Margin="207.4,2.5,0,1.422" TextWrapping="Wrap" HorizontalAlignment="Left" Width="185" BorderThickness="2" BorderBrush="#FF009688" Foreground="#FF212121" FontSize="18.667" SelectionBrush="#FFFFEB3B" MaxLines="1" ToolTip="플러그인이 작동될 수 있는 포켓마인의 API를 적어주세요.">
+                                <TextBox.Style>
+                                    <Style xmlns:sys="clr-namespace:System;assembly=mscorlib" TargetType="{x:Type TextBox}">
+                                        <Style.Resources>
+                                            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                                <VisualBrush.Visual>
+                                                    <Label Content="구동 가능 API" Foreground="#FFBDBDBD" FontSize="16" />
+                                                </VisualBrush.Visual>
+                                            </VisualBrush>
+                                        </Style.Resources>
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="{x:Null}">
+                                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                            </Trigger>
+                                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                                <Setter Property="Background" Value="White" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                        </Grid>
+                    </StackPanel>
+                    <Button x:Name="apiAddButton" Content="Add" HorizontalAlignment="Right" Margin="0,4.107,0,0" VerticalAlignment="Top" Width="35" BorderBrush="{x:Null}" Background="{x:Null}" Height="32" FontSize="14.667" FontWeight="Bold" Foreground="#FF212121" BorderThickness="2" Click="apiAddButton_Clicked" ToolTip="API 추가"/>
+                </Grid>
+            </Grid>
+            <Label x:Name="apiButton_cancelMessage" Content="3개가 최대입니다!" HorizontalAlignment="Right" Margin="0,189.771,59.893,179.186" Background="{x:Null}" Foreground="#FFF44336" FontSize="14.667" FontWeight="Bold" Visibility="Hidden"/>
+            <Button x:Name="createButton" Content="생성" HorizontalAlignment="Left" Margin="31.6,0,0,36.128" VerticalAlignment="Bottom" Width="107.467" Height="30" Background="#FFFFEB3B" BorderBrush="{x:Null}" BorderThickness="0" Foreground="White" FontSize="18.667" FontWeight="Bold" Click="CreateButton_Clicked" ToolTip="플러그인 틀 생성하기"/>
+            <Label x:Name="name_emptyAlert" Content="!" HorizontalAlignment="Right" Margin="0,10,175.703,0" Background="{x:Null}" Foreground="#FFF44336" FontSize="21.333" FontWeight="Bold" Height="37.999" VerticalAlignment="Top" Visibility="Hidden"/>
+            <Label x:Name="pluginName_emptyAlert" Content="!" HorizontalAlignment="Right" Margin="0,57.001,175.703,0" Background="{x:Null}" Foreground="#FFF44336" FontSize="21.333" FontWeight="Bold" Height="37.999" VerticalAlignment="Top" Visibility="Hidden"/>
+            <Label x:Name="pluginVersion_emptyAlert" Content="!" HorizontalAlignment="Right" Margin="0,102.001,175.703,0" Background="{x:Null}" Foreground="#FFF44336" FontSize="21.333" FontWeight="Bold" Height="37.999" VerticalAlignment="Top" Visibility="Hidden"/>
+            <Label x:Name="api_emptyAlert" Content="!" HorizontalAlignment="Right" Margin="0,143.097,135.703,0" Background="{x:Null}" Foreground="#FFF44336" FontSize="21.333" FontWeight="Bold" Height="37.999" VerticalAlignment="Top" Visibility="Hidden"/>
+            <Image x:Name="image2" Source="Resources/Icon/CASE-ICON.png" Width="173.4" HorizontalAlignment="Right" Opacity="0.4" Height="176.186" VerticalAlignment="Bottom"/>
+            <Label x:Name="case_tag_version" Content="CASE - 1.0" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="9.333" Margin="0,0,10,25.08" Height="20.813"/>
+            <Label x:Name="case_tag_copyright" Content="Copyright 2016. Sepi All rights reserved." HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="9.333" Height="25.08" Margin="0,0,10,0"/>
+            <Image x:Name="image1" HorizontalAlignment="Right" Height="20.813" Margin="0,0,64.667,25.08" VerticalAlignment="Bottom" Width="23.6" Source="Resources/Icon/case_icon_256px.ico" Visibility="Hidden"/>
+            <Label x:Name="name_noMatch" Content="특수문자, 숫자 입력 불가능!" HorizontalAlignment="Right" Margin="0,18.257,27.46,0" Background="{x:Null}" Foreground="#FFF44336" Height="26.266" VerticalAlignment="Top" Visibility="Hidden"/>
+            <Label x:Name="pluginName_noMatch" Content="특수문자, 숫자 입력 불가능!" HorizontalAlignment="Right" Margin="0,63.004,27.46,0" Background="{x:Null}" Foreground="#FFF44336" Height="26.266" VerticalAlignment="Top" Visibility="Hidden"/>
+            <Label x:Name="api_noMatch" Content="0.0.0 형태만 가능!" HorizontalAlignment="Right" Margin="0,153.257,29.276,0" Background="{x:Null}" Foreground="#FFF44336" Height="26.266" VerticalAlignment="Top" Visibility="Hidden"/>
+        </Grid>
+    </Grid>
+</Window>
