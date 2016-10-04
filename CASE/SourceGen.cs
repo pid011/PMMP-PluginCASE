@@ -13,7 +13,7 @@ namespace CASE
         {
             var sb = new StringBuilder();
             sb.AppendLine($@"name: {info.PluginName}");
-            sb.AppendLine($@"main: {info.PluginName}\Main");
+            sb.AppendLine($@"main: {info.Author}\{info.PluginName}\{info.PluginName}");
             sb.AppendLine($@"author: {info.Author}");
             sb.AppendLine($"version: {info.PluginVersion}");
             sb.AppendLine($"api:");
@@ -32,7 +32,7 @@ namespace CASE
             var sb = new StringBuilder();
             sb.AppendLine(@"<?php");
             sb.AppendLine();
-            sb.AppendLine($@"namespace {info.Author}\{info.PluginName}");
+            sb.AppendLine($@"namespace {info.Author}\{info.PluginName};");
             sb.AppendLine();
             sb.AppendLine(@"use pocketmine\plugin\PluginBase;");
             sb.AppendLine(@"use pocketmine\event\Listner;");
