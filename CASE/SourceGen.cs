@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace CASE
 {
@@ -34,7 +29,7 @@ namespace CASE
             sb.AppendLine($@"namespace {info.Author}\{info.PluginName};");
             sb.AppendLine();
             sb.AppendLine(@"use pocketmine\plugin\PluginBase;");
-            sb.AppendLine(@"use pocketmine\event\Listner;");
+            sb.AppendLine(@"use pocketmine\event\Listener;");
             sb.AppendLine();
             sb.Append($@"class {info.PluginName}");
             sb.AppendLine(@" extends PluginBase implements Listener{");

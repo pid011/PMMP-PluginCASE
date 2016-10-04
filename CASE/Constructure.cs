@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CASE
 {
     public class Constructure
     {
-
         private const string CASE_FOLDER_NAME = "CASE";
 
         private string mainDir;
@@ -80,7 +77,7 @@ namespace CASE
             {
                 string source = SourceGen.CreatePluginYML(this.Info);
                 string path = Path.Combine(mainDir, "plugin.yml");
-                using(StreamWriter writer = new StreamWriter(path))
+                using (StreamWriter writer = new StreamWriter(path))
                 {
                     await writer.WriteAsync(source);
                 }

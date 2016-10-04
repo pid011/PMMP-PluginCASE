@@ -1,20 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace CASE
@@ -99,9 +92,10 @@ namespace CASE
             }
             .ForEach(x => x.Visibility = Visibility.Hidden);
 
-
             bool isFaild = false;
+
             #region 텍스트 상태 체크
+
             string authorName = this.textbox_name.Text;
             if (string.IsNullOrWhiteSpace(authorName))
             {
@@ -163,7 +157,8 @@ namespace CASE
                     this.api_noMatch.Visibility = Visibility.Visible;
                 }
             }
-            #endregion
+
+            #endregion 텍스트 상태 체크
 
             if (!isFaild)
             {
@@ -177,7 +172,6 @@ namespace CASE
                 this.Dispatcher.Invoke((ThreadStart) (() => { }), DispatcherPriority.ApplicationIdle);
 
                 CreatePluginCase();
-
             }
             else
             {
@@ -192,7 +186,7 @@ namespace CASE
         {
             foreach (var ch in text)
             {
-                if (! Regex.IsMatch(ch.ToString(), @"([a-zA-Z])"))
+                if (!Regex.IsMatch(ch.ToString(), @"([a-zA-Z])"))
                 {
                     return false;
                 }
@@ -202,7 +196,7 @@ namespace CASE
 
         private bool Regex_CheckAPI(string text)
         {
-            if (! Regex.IsMatch(text, @"^([0-9]+).([0-9]+).([0-9]+)$"))
+            if (!Regex.IsMatch(text, @"^([0-9]+).([0-9]+).([0-9]+)$"))
             {
                 return false;
             }
