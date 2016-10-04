@@ -68,8 +68,8 @@ namespace CASE
                          i++;
                      }
                  }
-                 Directory.CreateDirectory(mainDir);
-                 srcDir = Path.Combine(mainDir, "src", Info.PluginName);
+                 srcDir = Path.Combine(mainDir, "src");
+                 srcDir = Path.Combine(srcDir, Info.Author, Info.PluginName);
                  Directory.CreateDirectory(srcDir);
              });
         }
@@ -92,7 +92,7 @@ namespace CASE
             await Task.Run(async () =>
             {
                 string source = SourceGen.CreateMainPHP(this.Info);
-                string path = Path.Combine(srcDir, "Main.php");
+                string path = Path.Combine(srcDir, $"{Info.PluginName}.php");
                 using (StreamWriter writer = new StreamWriter(path))
                 {
                     await writer.WriteAsync(source);
